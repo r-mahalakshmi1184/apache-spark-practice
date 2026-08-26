@@ -1,0 +1,3 @@
+Spark is fast and Spark is powerful
+Hadoop is reliable but Hadoop is slower
+Spark and Hadoop are both distributed systems
