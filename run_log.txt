@@ -1,0 +1,380 @@
+[info] running (fork) exercises.Exercise16_CacheVsPersist 
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/08/26 06:56:02 WARN Utils: Your hostname, Maha-8411 resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/08/26 06:56:02 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/08/26 06:56:02 INFO SparkContext: Running Spark version 3.5.6
+26/08/26 06:56:02 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/08/26 06:56:02 INFO SparkContext: Java version 17.0.13
+26/08/26 06:56:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/08/26 06:56:02 INFO ResourceUtils: ==============================================================
+26/08/26 06:56:02 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/08/26 06:56:02 INFO ResourceUtils: ==============================================================
+26/08/26 06:56:02 INFO SparkContext: Submitted application: Exercise 16 - Cache vs Persist
+26/08/26 06:56:02 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/08/26 06:56:02 INFO ResourceProfile: Limiting resource is cpu
+26/08/26 06:56:02 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/08/26 06:56:02 INFO SecurityManager: Changing view acls to: maha
+26/08/26 06:56:02 INFO SecurityManager: Changing modify acls to: maha
+26/08/26 06:56:02 INFO SecurityManager: Changing view acls groups to: 
+26/08/26 06:56:02 INFO SecurityManager: Changing modify acls groups to: 
+26/08/26 06:56:02 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: maha; groups with view permissions: EMPTY; users with modify permissions: maha; groups with modify permissions: EMPTY
+26/08/26 06:56:03 INFO Utils: Successfully started service 'sparkDriver' on port 42595.
+26/08/26 06:56:03 INFO SparkEnv: Registering MapOutputTracker
+26/08/26 06:56:03 INFO SparkEnv: Registering BlockManagerMaster
+26/08/26 06:56:03 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/08/26 06:56:03 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/08/26 06:56:03 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/08/26 06:56:03 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-bb2dd539-0c68-47f3-b012-c605f08340b6
+26/08/26 06:56:03 INFO MemoryStore: MemoryStore started with capacity 987.6 MiB
+26/08/26 06:56:03 INFO SparkEnv: Registering OutputCommitCoordinator
+26/08/26 06:56:03 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/08/26 06:56:03 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/08/26 06:56:03 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/08/26 06:56:03 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/08/26 06:56:03 INFO Executor: Java version 17.0.13
+26/08/26 06:56:03 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/08/26 06:56:03 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@58ba5b30 for default.
+26/08/26 06:56:03 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33677.
+26/08/26 06:56:03 INFO NettyBlockTransferService: Server created on 10.255.255.254:33677
+26/08/26 06:56:03 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/08/26 06:56:03 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 33677, None)
+26/08/26 06:56:03 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:33677 with 987.6 MiB RAM, BlockManagerId(driver, 10.255.255.254, 33677, None)
+26/08/26 06:56:03 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 33677, None)
+26/08/26 06:56:03 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 33677, None)
+26/08/26 06:56:04 INFO SparkContext: Starting job: sum at Exercise16_CacheVsPersist.scala:25
+26/08/26 06:56:04 INFO DAGScheduler: Got job 0 (sum at Exercise16_CacheVsPersist.scala:25) with 12 output partitions
+26/08/26 06:56:04 INFO DAGScheduler: Final stage: ResultStage 0 (sum at Exercise16_CacheVsPersist.scala:25)
+26/08/26 06:56:04 INFO DAGScheduler: Parents of final stage: List()
+26/08/26 06:56:04 INFO DAGScheduler: Missing parents: List()
+26/08/26 06:56:04 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[2] at numericRDDToDoubleRDDFunctions at Exercise16_CacheVsPersist.scala:25), which has no missing parents
+26/08/26 06:56:04 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 4.6 KiB, free 987.6 MiB)
+26/08/26 06:56:04 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 2.6 KiB, free 987.6 MiB)
+26/08/26 06:56:04 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.255.255.254:33677 (size: 2.6 KiB, free: 987.6 MiB)
+26/08/26 06:56:04 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1611
+26/08/26 06:56:04 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at numericRDDToDoubleRDDFunctions at Exercise16_CacheVsPersist.scala:25) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+26/08/26 06:56:04 INFO TaskSchedulerImpl: Adding task set 0.0 with 12 tasks resource profile 0
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.255.255.254, executor driver, partition 0, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (10.255.255.254, executor driver, partition 1, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (10.255.255.254, executor driver, partition 2, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (10.255.255.254, executor driver, partition 3, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (10.255.255.254, executor driver, partition 4, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (10.255.255.254, executor driver, partition 5, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (10.255.255.254, executor driver, partition 6, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (10.255.255.254, executor driver, partition 7, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8) (10.255.255.254, executor driver, partition 8, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9) (10.255.255.254, executor driver, partition 9, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10) (10.255.255.254, executor driver, partition 10, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11) (10.255.255.254, executor driver, partition 11, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:04 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+26/08/26 06:56:04 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+26/08/26 06:56:04 INFO Executor: Running task 5.0 in stage 0.0 (TID 5)
+26/08/26 06:56:04 INFO Executor: Running task 8.0 in stage 0.0 (TID 8)
+26/08/26 06:56:04 INFO Executor: Running task 4.0 in stage 0.0 (TID 4)
+26/08/26 06:56:04 INFO Executor: Running task 6.0 in stage 0.0 (TID 6)
+26/08/26 06:56:04 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+26/08/26 06:56:04 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+26/08/26 06:56:04 INFO Executor: Running task 7.0 in stage 0.0 (TID 7)
+26/08/26 06:56:04 INFO Executor: Running task 9.0 in stage 0.0 (TID 9)
+26/08/26 06:56:04 INFO Executor: Running task 10.0 in stage 0.0 (TID 10)
+26/08/26 06:56:04 INFO Executor: Running task 11.0 in stage 0.0 (TID 11)
+26/08/26 06:56:05 INFO Executor: Finished task 4.0 in stage 0.0 (TID 4). 975 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 10.0 in stage 0.0 (TID 10). 975 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 975 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 11.0 in stage 0.0 (TID 11). 975 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 9.0 in stage 0.0 (TID 9). 975 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 932 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 932 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 7.0 in stage 0.0 (TID 7). 975 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 6.0 in stage 0.0 (TID 6). 932 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 10.0 in stage 0.0 (TID 10) in 370 ms on 10.255.255.254 (executor driver) (1/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 386 ms on 10.255.255.254 (executor driver) (2/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 390 ms on 10.255.255.254 (executor driver) (3/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 11.0 in stage 0.0 (TID 11) in 377 ms on 10.255.255.254 (executor driver) (4/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 9.0 in stage 0.0 (TID 9) in 385 ms on 10.255.255.254 (executor driver) (5/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 401 ms on 10.255.255.254 (executor driver) (6/12)
+26/08/26 06:56:05 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 932 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 393 ms on 10.255.255.254 (executor driver) (7/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 395 ms on 10.255.255.254 (executor driver) (8/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 402 ms on 10.255.255.254 (executor driver) (9/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 439 ms on 10.255.255.254 (executor driver) (10/12)
+26/08/26 06:56:05 INFO Executor: Finished task 5.0 in stage 0.0 (TID 5). 932 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 8.0 in stage 0.0 (TID 8). 932 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 8.0 in stage 0.0 (TID 8) in 403 ms on 10.255.255.254 (executor driver) (11/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 408 ms on 10.255.255.254 (executor driver) (12/12)
+26/08/26 06:56:05 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+26/08/26 06:56:05 INFO DAGScheduler: ResultStage 0 (sum at Exercise16_CacheVsPersist.scala:25) finished in 0.658 s
+26/08/26 06:56:05 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/26 06:56:05 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/08/26 06:56:05 INFO DAGScheduler: Job 0 finished: sum at Exercise16_CacheVsPersist.scala:25, took 0.736541 s
+26/08/26 06:56:05 INFO SparkContext: Starting job: count at Exercise16_CacheVsPersist.scala:26
+26/08/26 06:56:05 INFO DAGScheduler: Got job 1 (count at Exercise16_CacheVsPersist.scala:26) with 12 output partitions
+26/08/26 06:56:05 INFO DAGScheduler: Final stage: ResultStage 1 (count at Exercise16_CacheVsPersist.scala:26)
+26/08/26 06:56:05 INFO DAGScheduler: Parents of final stage: List()
+26/08/26 06:56:05 INFO DAGScheduler: Missing parents: List()
+26/08/26 06:56:05 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[1] at map at Exercise16_CacheVsPersist.scala:18), which has no missing parents
+26/08/26 06:56:05 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 3.8 KiB, free 987.6 MiB)
+26/08/26 06:56:05 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.2 KiB, free 987.6 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.255.255.254:33677 (size: 2.2 KiB, free: 987.6 MiB)
+26/08/26 06:56:05 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1611
+26/08/26 06:56:05 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 1 (MapPartitionsRDD[1] at map at Exercise16_CacheVsPersist.scala:18) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+26/08/26 06:56:05 INFO TaskSchedulerImpl: Adding task set 1.0 with 12 tasks resource profile 0
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 12) (10.255.255.254, executor driver, partition 0, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 13) (10.255.255.254, executor driver, partition 1, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 2.0 in stage 1.0 (TID 14) (10.255.255.254, executor driver, partition 2, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 3.0 in stage 1.0 (TID 15) (10.255.255.254, executor driver, partition 3, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 4.0 in stage 1.0 (TID 16) (10.255.255.254, executor driver, partition 4, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 5.0 in stage 1.0 (TID 17) (10.255.255.254, executor driver, partition 5, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 6.0 in stage 1.0 (TID 18) (10.255.255.254, executor driver, partition 6, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 7.0 in stage 1.0 (TID 19) (10.255.255.254, executor driver, partition 7, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 8.0 in stage 1.0 (TID 20) (10.255.255.254, executor driver, partition 8, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 9.0 in stage 1.0 (TID 21) (10.255.255.254, executor driver, partition 9, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 10.0 in stage 1.0 (TID 22) (10.255.255.254, executor driver, partition 10, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 11.0 in stage 1.0 (TID 23) (10.255.255.254, executor driver, partition 11, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO Executor: Running task 0.0 in stage 1.0 (TID 12)
+26/08/26 06:56:05 INFO Executor: Running task 9.0 in stage 1.0 (TID 21)
+26/08/26 06:56:05 INFO Executor: Running task 7.0 in stage 1.0 (TID 19)
+26/08/26 06:56:05 INFO Executor: Running task 4.0 in stage 1.0 (TID 16)
+26/08/26 06:56:05 INFO Executor: Running task 5.0 in stage 1.0 (TID 17)
+26/08/26 06:56:05 INFO Executor: Running task 8.0 in stage 1.0 (TID 20)
+26/08/26 06:56:05 INFO Executor: Running task 1.0 in stage 1.0 (TID 13)
+26/08/26 06:56:05 INFO Executor: Running task 3.0 in stage 1.0 (TID 15)
+26/08/26 06:56:05 INFO Executor: Running task 2.0 in stage 1.0 (TID 14)
+26/08/26 06:56:05 INFO Executor: Running task 6.0 in stage 1.0 (TID 18)
+26/08/26 06:56:05 INFO Executor: Running task 10.0 in stage 1.0 (TID 22)
+26/08/26 06:56:05 INFO Executor: Running task 11.0 in stage 1.0 (TID 23)
+26/08/26 06:56:05 INFO Executor: Finished task 1.0 in stage 1.0 (TID 13). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 2.0 in stage 1.0 (TID 14). 887 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 13) in 121 ms on 10.255.255.254 (executor driver) (1/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 2.0 in stage 1.0 (TID 14) in 127 ms on 10.255.255.254 (executor driver) (2/12)
+26/08/26 06:56:05 INFO Executor: Finished task 10.0 in stage 1.0 (TID 22). 887 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 10.0 in stage 1.0 (TID 22) in 127 ms on 10.255.255.254 (executor driver) (3/12)
+26/08/26 06:56:05 INFO Executor: Finished task 8.0 in stage 1.0 (TID 20). 887 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 8.0 in stage 1.0 (TID 20) in 142 ms on 10.255.255.254 (executor driver) (4/12)
+26/08/26 06:56:05 INFO Executor: Finished task 3.0 in stage 1.0 (TID 15). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 3.0 in stage 1.0 (TID 15) in 156 ms on 10.255.255.254 (executor driver) (5/12)
+26/08/26 06:56:05 INFO Executor: Finished task 5.0 in stage 1.0 (TID 17). 973 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 5.0 in stage 1.0 (TID 17) in 185 ms on 10.255.255.254 (executor driver) (6/12)
+26/08/26 06:56:05 INFO Executor: Finished task 11.0 in stage 1.0 (TID 23). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO Executor: Finished task 0.0 in stage 1.0 (TID 12). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 11.0 in stage 1.0 (TID 23) in 182 ms on 10.255.255.254 (executor driver) (7/12)
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 12) in 202 ms on 10.255.255.254 (executor driver) (8/12)
+26/08/26 06:56:05 INFO Executor: Finished task 4.0 in stage 1.0 (TID 16). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 4.0 in stage 1.0 (TID 16) in 200 ms on 10.255.255.254 (executor driver) (9/12)
+26/08/26 06:56:05 INFO Executor: Finished task 6.0 in stage 1.0 (TID 18). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 6.0 in stage 1.0 (TID 18) in 204 ms on 10.255.255.254 (executor driver) (10/12)
+26/08/26 06:56:05 INFO Executor: Finished task 7.0 in stage 1.0 (TID 19). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 7.0 in stage 1.0 (TID 19) in 213 ms on 10.255.255.254 (executor driver) (11/12)
+26/08/26 06:56:05 INFO Executor: Finished task 9.0 in stage 1.0 (TID 21). 930 bytes result sent to driver
+26/08/26 06:56:05 INFO TaskSetManager: Finished task 9.0 in stage 1.0 (TID 21) in 215 ms on 10.255.255.254 (executor driver) (12/12)
+26/08/26 06:56:05 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+26/08/26 06:56:05 INFO DAGScheduler: ResultStage 1 (count at Exercise16_CacheVsPersist.scala:26) finished in 0.251 s
+26/08/26 06:56:05 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/26 06:56:05 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/08/26 06:56:05 INFO DAGScheduler: Job 1 finished: count at Exercise16_CacheVsPersist.scala:26, took 0.266882 s
+Without caching -> sum=1.6866193336416E13, count=1000000, time=1127ms
+(expensive transformation recomputed for EACH action)
+26/08/26 06:56:05 INFO SparkContext: Starting job: sum at Exercise16_CacheVsPersist.scala:34
+26/08/26 06:56:05 INFO DAGScheduler: Got job 2 (sum at Exercise16_CacheVsPersist.scala:34) with 12 output partitions
+26/08/26 06:56:05 INFO DAGScheduler: Final stage: ResultStage 2 (sum at Exercise16_CacheVsPersist.scala:34)
+26/08/26 06:56:05 INFO DAGScheduler: Parents of final stage: List()
+26/08/26 06:56:05 INFO DAGScheduler: Missing parents: List()
+26/08/26 06:56:05 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[3] at numericRDDToDoubleRDDFunctions at Exercise16_CacheVsPersist.scala:34), which has no missing parents
+26/08/26 06:56:05 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 4.6 KiB, free 987.6 MiB)
+26/08/26 06:56:05 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 2.6 KiB, free 987.6 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.255.255.254:33677 (size: 2.6 KiB, free: 987.6 MiB)
+26/08/26 06:56:05 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1611
+26/08/26 06:56:05 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 2 (MapPartitionsRDD[3] at numericRDDToDoubleRDDFunctions at Exercise16_CacheVsPersist.scala:34) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+26/08/26 06:56:05 INFO TaskSchedulerImpl: Adding task set 2.0 with 12 tasks resource profile 0
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 24) (10.255.255.254, executor driver, partition 0, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 25) (10.255.255.254, executor driver, partition 1, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 26) (10.255.255.254, executor driver, partition 2, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 27) (10.255.255.254, executor driver, partition 3, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 28) (10.255.255.254, executor driver, partition 4, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 5.0 in stage 2.0 (TID 29) (10.255.255.254, executor driver, partition 5, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 6.0 in stage 2.0 (TID 30) (10.255.255.254, executor driver, partition 6, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 7.0 in stage 2.0 (TID 31) (10.255.255.254, executor driver, partition 7, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 8.0 in stage 2.0 (TID 32) (10.255.255.254, executor driver, partition 8, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 9.0 in stage 2.0 (TID 33) (10.255.255.254, executor driver, partition 9, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 10.0 in stage 2.0 (TID 34) (10.255.255.254, executor driver, partition 10, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO TaskSetManager: Starting task 11.0 in stage 2.0 (TID 35) (10.255.255.254, executor driver, partition 11, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:05 INFO Executor: Running task 0.0 in stage 2.0 (TID 24)
+26/08/26 06:56:05 INFO Executor: Running task 2.0 in stage 2.0 (TID 26)
+26/08/26 06:56:05 INFO Executor: Running task 3.0 in stage 2.0 (TID 27)
+26/08/26 06:56:05 INFO Executor: Running task 5.0 in stage 2.0 (TID 29)
+26/08/26 06:56:05 INFO Executor: Running task 4.0 in stage 2.0 (TID 28)
+26/08/26 06:56:05 INFO Executor: Running task 1.0 in stage 2.0 (TID 25)
+26/08/26 06:56:05 INFO Executor: Running task 6.0 in stage 2.0 (TID 30)
+26/08/26 06:56:05 INFO Executor: Running task 7.0 in stage 2.0 (TID 31)
+26/08/26 06:56:05 INFO Executor: Running task 10.0 in stage 2.0 (TID 34)
+26/08/26 06:56:05 INFO Executor: Running task 8.0 in stage 2.0 (TID 32)
+26/08/26 06:56:05 INFO Executor: Running task 11.0 in stage 2.0 (TID 35)
+26/08/26 06:56:05 INFO Executor: Running task 9.0 in stage 2.0 (TID 33)
+26/08/26 06:56:05 INFO MemoryStore: Block rdd_1_7 stored as values in memory (estimated size 325.5 KiB, free 987.3 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added rdd_1_7 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 987.3 MiB)
+26/08/26 06:56:05 INFO MemoryStore: Block rdd_1_11 stored as values in memory (estimated size 325.5 KiB, free 986.9 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added rdd_1_11 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 987.0 MiB)
+26/08/26 06:56:05 INFO MemoryStore: Block rdd_1_10 stored as values in memory (estimated size 325.5 KiB, free 986.6 MiB)
+26/08/26 06:56:05 INFO MemoryStore: Block rdd_1_9 stored as values in memory (estimated size 325.5 KiB, free 986.3 MiB)
+26/08/26 06:56:05 INFO MemoryStore: Block rdd_1_8 stored as values in memory (estimated size 325.5 KiB, free 986.0 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added rdd_1_10 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 986.6 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added rdd_1_9 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 986.3 MiB)
+26/08/26 06:56:05 INFO BlockManagerInfo: Added rdd_1_8 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 986.0 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_2 stored as values in memory (estimated size 325.5 KiB, free 985.7 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 10.255.255.254:33677 in memory (size: 2.2 KiB, free: 986.0 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_2 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 985.7 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_5 stored as values in memory (estimated size 325.5 KiB, free 985.4 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_5 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 985.4 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_3 stored as values in memory (estimated size 325.5 KiB, free 985.0 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_3 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 985.1 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_4 stored as values in memory (estimated size 325.5 KiB, free 984.7 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_4 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 984.7 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_0 stored as values in memory (estimated size 325.5 KiB, free 984.4 MiB)
+26/08/26 06:56:06 INFO Executor: Finished task 7.0 in stage 2.0 (TID 31). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 7.0 in stage 2.0 (TID 31) in 643 ms on 10.255.255.254 (executor driver) (1/12)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_0 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 984.4 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_1 stored as values in memory (estimated size 325.5 KiB, free 984.1 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_1 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 984.1 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block rdd_1_6 stored as values in memory (estimated size 325.5 KiB, free 983.8 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added rdd_1_6 in memory on 10.255.255.254:33677 (size: 325.5 KiB, free: 983.8 MiB)
+26/08/26 06:56:06 INFO Executor: Finished task 11.0 in stage 2.0 (TID 35). 975 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 11.0 in stage 2.0 (TID 35) in 688 ms on 10.255.255.254 (executor driver) (2/12)
+26/08/26 06:56:06 INFO Executor: Finished task 8.0 in stage 2.0 (TID 32). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 8.0 in stage 2.0 (TID 32) in 715 ms on 10.255.255.254 (executor driver) (3/12)
+26/08/26 06:56:06 INFO Executor: Finished task 9.0 in stage 2.0 (TID 33). 975 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 9.0 in stage 2.0 (TID 33) in 759 ms on 10.255.255.254 (executor driver) (4/12)
+26/08/26 06:56:06 INFO Executor: Finished task 10.0 in stage 2.0 (TID 34). 975 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 10.0 in stage 2.0 (TID 34) in 770 ms on 10.255.255.254 (executor driver) (5/12)
+26/08/26 06:56:06 INFO Executor: Finished task 2.0 in stage 2.0 (TID 26). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 5.0 in stage 2.0 (TID 29). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 26) in 792 ms on 10.255.255.254 (executor driver) (6/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 5.0 in stage 2.0 (TID 29) in 786 ms on 10.255.255.254 (executor driver) (7/12)
+26/08/26 06:56:06 INFO Executor: Finished task 3.0 in stage 2.0 (TID 27). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 4.0 in stage 2.0 (TID 28). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 28) in 798 ms on 10.255.255.254 (executor driver) (8/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 27) in 802 ms on 10.255.255.254 (executor driver) (9/12)
+26/08/26 06:56:06 INFO Executor: Finished task 1.0 in stage 2.0 (TID 25). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 25) in 809 ms on 10.255.255.254 (executor driver) (10/12)
+26/08/26 06:56:06 INFO Executor: Finished task 6.0 in stage 2.0 (TID 30). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 0.0 in stage 2.0 (TID 24). 932 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 6.0 in stage 2.0 (TID 30) in 803 ms on 10.255.255.254 (executor driver) (11/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 24) in 814 ms on 10.255.255.254 (executor driver) (12/12)
+26/08/26 06:56:06 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+26/08/26 06:56:06 INFO DAGScheduler: ResultStage 2 (sum at Exercise16_CacheVsPersist.scala:34) finished in 0.838 s
+26/08/26 06:56:06 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/26 06:56:06 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+26/08/26 06:56:06 INFO DAGScheduler: Job 2 finished: sum at Exercise16_CacheVsPersist.scala:34, took 0.857056 s
+26/08/26 06:56:06 INFO SparkContext: Starting job: count at Exercise16_CacheVsPersist.scala:35
+26/08/26 06:56:06 INFO DAGScheduler: Got job 3 (count at Exercise16_CacheVsPersist.scala:35) with 12 output partitions
+26/08/26 06:56:06 INFO DAGScheduler: Final stage: ResultStage 3 (count at Exercise16_CacheVsPersist.scala:35)
+26/08/26 06:56:06 INFO DAGScheduler: Parents of final stage: List()
+26/08/26 06:56:06 INFO DAGScheduler: Missing parents: List()
+26/08/26 06:56:06 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[1] at map at Exercise16_CacheVsPersist.scala:18), which has no missing parents
+26/08/26 06:56:06 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 3.8 KiB, free 983.8 MiB)
+26/08/26 06:56:06 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 2.2 KiB, free 983.8 MiB)
+26/08/26 06:56:06 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.255.255.254:33677 (size: 2.2 KiB, free: 983.8 MiB)
+26/08/26 06:56:06 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1611
+26/08/26 06:56:06 INFO DAGScheduler: Submitting 12 missing tasks from ResultStage 3 (MapPartitionsRDD[1] at map at Exercise16_CacheVsPersist.scala:18) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+26/08/26 06:56:06 INFO TaskSchedulerImpl: Adding task set 3.0 with 12 tasks resource profile 0
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 36) (10.255.255.254, executor driver, partition 0, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 37) (10.255.255.254, executor driver, partition 1, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 38) (10.255.255.254, executor driver, partition 2, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 39) (10.255.255.254, executor driver, partition 3, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 4.0 in stage 3.0 (TID 40) (10.255.255.254, executor driver, partition 4, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 5.0 in stage 3.0 (TID 41) (10.255.255.254, executor driver, partition 5, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 6.0 in stage 3.0 (TID 42) (10.255.255.254, executor driver, partition 6, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 7.0 in stage 3.0 (TID 43) (10.255.255.254, executor driver, partition 7, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 8.0 in stage 3.0 (TID 44) (10.255.255.254, executor driver, partition 8, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 9.0 in stage 3.0 (TID 45) (10.255.255.254, executor driver, partition 9, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 10.0 in stage 3.0 (TID 46) (10.255.255.254, executor driver, partition 10, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO TaskSetManager: Starting task 11.0 in stage 3.0 (TID 47) (10.255.255.254, executor driver, partition 11, PROCESS_LOCAL, 9124 bytes) 
+26/08/26 06:56:06 INFO Executor: Running task 0.0 in stage 3.0 (TID 36)
+26/08/26 06:56:06 INFO Executor: Running task 1.0 in stage 3.0 (TID 37)
+26/08/26 06:56:06 INFO Executor: Running task 2.0 in stage 3.0 (TID 38)
+26/08/26 06:56:06 INFO Executor: Running task 5.0 in stage 3.0 (TID 41)
+26/08/26 06:56:06 INFO Executor: Running task 9.0 in stage 3.0 (TID 45)
+26/08/26 06:56:06 INFO Executor: Running task 3.0 in stage 3.0 (TID 39)
+26/08/26 06:56:06 INFO Executor: Running task 11.0 in stage 3.0 (TID 47)
+26/08/26 06:56:06 INFO Executor: Running task 10.0 in stage 3.0 (TID 46)
+26/08/26 06:56:06 INFO Executor: Running task 4.0 in stage 3.0 (TID 40)
+26/08/26 06:56:06 INFO Executor: Running task 6.0 in stage 3.0 (TID 42)
+26/08/26 06:56:06 INFO Executor: Running task 7.0 in stage 3.0 (TID 43)
+26/08/26 06:56:06 INFO Executor: Running task 8.0 in stage 3.0 (TID 44)
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_0 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_1 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_7 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_8 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_10 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_9 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_5 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_2 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_4 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_11 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_3 locally
+26/08/26 06:56:06 INFO BlockManager: Found block rdd_1_6 locally
+26/08/26 06:56:06 INFO Executor: Finished task 11.0 in stage 3.0 (TID 47). 1059 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 11.0 in stage 3.0 (TID 47) in 157 ms on 10.255.255.254 (executor driver) (1/12)
+26/08/26 06:56:06 INFO Executor: Finished task 6.0 in stage 3.0 (TID 42). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 6.0 in stage 3.0 (TID 42) in 170 ms on 10.255.255.254 (executor driver) (2/12)
+26/08/26 06:56:06 INFO Executor: Finished task 9.0 in stage 3.0 (TID 45). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 9.0 in stage 3.0 (TID 45) in 187 ms on 10.255.255.254 (executor driver) (3/12)
+26/08/26 06:56:06 INFO Executor: Finished task 5.0 in stage 3.0 (TID 41). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 5.0 in stage 3.0 (TID 41) in 201 ms on 10.255.255.254 (executor driver) (4/12)
+26/08/26 06:56:06 INFO Executor: Finished task 7.0 in stage 3.0 (TID 43). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 7.0 in stage 3.0 (TID 43) in 203 ms on 10.255.255.254 (executor driver) (5/12)
+26/08/26 06:56:06 INFO Executor: Finished task 0.0 in stage 3.0 (TID 36). 1059 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 8.0 in stage 3.0 (TID 44). 1059 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 2.0 in stage 3.0 (TID 38). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 36) in 231 ms on 10.255.255.254 (executor driver) (6/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 8.0 in stage 3.0 (TID 44) in 218 ms on 10.255.255.254 (executor driver) (7/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 38) in 229 ms on 10.255.255.254 (executor driver) (8/12)
+26/08/26 06:56:06 INFO Executor: Finished task 10.0 in stage 3.0 (TID 46). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 1.0 in stage 3.0 (TID 37). 1016 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 4.0 in stage 3.0 (TID 40). 1059 bytes result sent to driver
+26/08/26 06:56:06 INFO Executor: Finished task 3.0 in stage 3.0 (TID 39). 1059 bytes result sent to driver
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 10.0 in stage 3.0 (TID 46) in 225 ms on 10.255.255.254 (executor driver) (9/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 39) in 239 ms on 10.255.255.254 (executor driver) (10/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 37) in 244 ms on 10.255.255.254 (executor driver) (11/12)
+26/08/26 06:56:06 INFO TaskSetManager: Finished task 4.0 in stage 3.0 (TID 40) in 239 ms on 10.255.255.254 (executor driver) (12/12)
+26/08/26 06:56:06 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+26/08/26 06:56:06 INFO DAGScheduler: ResultStage 3 (count at Exercise16_CacheVsPersist.scala:35) finished in 0.277 s
+26/08/26 06:56:06 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/08/26 06:56:06 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+26/08/26 06:56:06 INFO DAGScheduler: Job 3 finished: count at Exercise16_CacheVsPersist.scala:35, took 0.291845 s
+
+With cache() -> sum=1.6866193336416E13, count=1000000, time=1182ms
+(computed once on first action, reused on second)
+Exception in thread "main" org.apache.spark.SparkUnsupportedOperationException: Cannot change storage level of an RDD after it was already assigned a level
+	at org.apache.spark.errors.SparkCoreErrors$.cannotChangeStorageLevelError(SparkCoreErrors.scala:136)
+	at org.apache.spark.rdd.RDD.persist(RDD.scala:167)
+	at org.apache.spark.rdd.RDD.persist(RDD.scala:191)
+	at exercises.Exercise16_CacheVsPersist$.main(Exercise16_CacheVsPersist.scala:41)
+	at exercises.Exercise16_CacheVsPersist.main(Exercise16_CacheVsPersist.scala)
+26/08/26 06:56:06 INFO SparkContext: Invoking stop() from shutdown hook
+26/08/26 06:56:06 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/08/26 06:56:06 INFO SparkUI: Stopped Spark web UI at http://10.255.255.254:4040
+26/08/26 06:56:06 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/08/26 06:56:06 INFO MemoryStore: MemoryStore cleared
+26/08/26 06:56:06 INFO BlockManager: BlockManager stopped
+26/08/26 06:56:06 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/08/26 06:56:06 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/08/26 06:56:06 INFO SparkContext: Successfully stopped SparkContext
+26/08/26 06:56:06 INFO ShutdownHookManager: Shutdown hook called
+26/08/26 06:56:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-6e4bde8d-0aeb-4506-831d-bcb3d95930b6
+[error] sbt server disconnected
+Exception in thread "sbt-serverconnection-0" nonzero exit code returned from runner: 1
+	at sbt.Run$.processExitCode(Run.scala:257)
+	at sbt.ForkRun.run(Run.scala:45)
+	at sbt.internal.util.RunHandler$.jvmRun(RunHandler.scala:43)
+	at sbt.internal.client.NetworkClient.clientSideRun(NetworkClient.scala:847)
+	at sbt.internal.client.NetworkClient.clientSideRun(NetworkClient.scala:811)
+	at sbt.internal.client.NetworkClient.splitToMessage$1(NetworkClient.scala:742)
+	at sbt.internal.client.NetworkClient.onNotification(NetworkClient.scala:773)
+	at sbt.internal.client.NetworkClient$$anon$8.onNotification(NetworkClient.scala:315)
+	at sbt.protocol.ServerSessionImpl$$anon$1.run$$anonfun$2(ServerSessionImpl.scala:110)
+	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+	at scala.util.Either.fold(Either.scala:200)
+	at sbt.protocol.ServerSessionImpl$$anon$1.run(ServerSessionImpl.scala:107)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+[0J
