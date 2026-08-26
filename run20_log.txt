@@ -1,0 +1,94 @@
+[info] running (fork) exercises.Exercise20_EndToEndProject 
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/08/26 07:21:15 WARN Utils: Your hostname, Maha-8411 resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/08/26 07:21:15 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/08/26 07:21:15 INFO SparkContext: Running Spark version 3.5.6
+26/08/26 07:21:15 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/08/26 07:21:15 INFO SparkContext: Java version 17.0.13
+26/08/26 07:21:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/08/26 07:21:16 INFO ResourceUtils: ==============================================================
+26/08/26 07:21:16 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/08/26 07:21:16 INFO ResourceUtils: ==============================================================
+26/08/26 07:21:16 INFO SparkContext: Submitted application: Exercise 20 - End-to-End Real-Time Spark Project
+26/08/26 07:21:16 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/08/26 07:21:16 INFO ResourceProfile: Limiting resource is cpu
+26/08/26 07:21:16 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/08/26 07:21:16 INFO SecurityManager: Changing view acls to: maha
+26/08/26 07:21:16 INFO SecurityManager: Changing modify acls to: maha
+26/08/26 07:21:16 INFO SecurityManager: Changing view acls groups to: 
+26/08/26 07:21:16 INFO SecurityManager: Changing modify acls groups to: 
+26/08/26 07:21:16 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: maha; groups with view permissions: EMPTY; users with modify permissions: maha; groups with modify permissions: EMPTY
+26/08/26 07:21:16 INFO Utils: Successfully started service 'sparkDriver' on port 34393.
+26/08/26 07:21:16 INFO SparkEnv: Registering MapOutputTracker
+26/08/26 07:21:16 INFO SparkEnv: Registering BlockManagerMaster
+26/08/26 07:21:16 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/08/26 07:21:16 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/08/26 07:21:16 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/08/26 07:21:16 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-9d98b686-a234-4c6e-aa7f-a459eb20806f
+26/08/26 07:21:16 INFO MemoryStore: MemoryStore started with capacity 987.6 MiB
+26/08/26 07:21:16 INFO SparkEnv: Registering OutputCommitCoordinator
+26/08/26 07:21:17 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/08/26 07:21:17 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/08/26 07:21:17 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/08/26 07:21:17 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/08/26 07:21:17 INFO Executor: Java version 17.0.13
+26/08/26 07:21:17 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/08/26 07:21:17 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@56637cff for default.
+26/08/26 07:21:17 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39685.
+26/08/26 07:21:17 INFO NettyBlockTransferService: Server created on 10.255.255.254:39685
+26/08/26 07:21:17 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/08/26 07:21:17 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 39685, None)
+26/08/26 07:21:17 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:39685 with 987.6 MiB RAM, BlockManagerId(driver, 10.255.255.254, 39685, None)
+26/08/26 07:21:17 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 39685, None)
+26/08/26 07:21:17 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 39685, None)
+Exception in thread "main" org.apache.spark.SparkUnsupportedOperationException: [ENCODER_NOT_FOUND] Not found an encoder of the type Any to Spark SQL internal representation. Consider to change the input type to one of supported at 'https://spark.apache.org/docs/latest/sql-ref-datatypes.html'.
+	at org.apache.spark.sql.errors.ExecutionErrors.cannotFindEncoderForTypeError(ExecutionErrors.scala:172)
+	at org.apache.spark.sql.errors.ExecutionErrors.cannotFindEncoderForTypeError$(ExecutionErrors.scala:167)
+	at org.apache.spark.sql.errors.ExecutionErrors$.cannotFindEncoderForTypeError(ExecutionErrors.scala:218)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.encoderFor(ScalaReflection.scala:400)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.$anonfun$encoderFor$3(ScalaReflection.scala:394)
+	at scala.collection.immutable.List.map(List.scala:297)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.encoderFor(ScalaReflection.scala:382)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.$anonfun$encoderFor$1(ScalaReflection.scala:247)
+	at scala.reflect.internal.tpe.TypeConstraints$UndoLog.undo(TypeConstraints.scala:73)
+	at org.apache.spark.sql.catalyst.ScalaReflection.cleanUpReflectionObjects(ScalaReflection.scala:426)
+	at org.apache.spark.sql.catalyst.ScalaReflection.cleanUpReflectionObjects$(ScalaReflection.scala:425)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.cleanUpReflectionObjects(ScalaReflection.scala:42)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.encoderFor(ScalaReflection.scala:244)
+	at org.apache.spark.sql.catalyst.ScalaReflection$.encoderFor(ScalaReflection.scala:227)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder$.apply(ExpressionEncoder.scala:51)
+	at org.apache.spark.sql.Encoders$.product(Encoders.scala:315)
+	at org.apache.spark.sql.LowPrioritySQLImplicits.newProductEncoder(SQLImplicits.scala:264)
+	at org.apache.spark.sql.LowPrioritySQLImplicits.newProductEncoder$(SQLImplicits.scala:264)
+	at org.apache.spark.sql.SQLImplicits.newProductEncoder(SQLImplicits.scala:32)
+	at exercises.Exercise20_EndToEndProject$.main(Exercise20_EndToEndProject.scala:26)
+	at exercises.Exercise20_EndToEndProject.main(Exercise20_EndToEndProject.scala)
+26/08/26 07:21:18 INFO SparkContext: Invoking stop() from shutdown hook
+26/08/26 07:21:18 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/08/26 07:21:18 INFO SparkUI: Stopped Spark web UI at http://10.255.255.254:4040
+26/08/26 07:21:18 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/08/26 07:21:18 INFO MemoryStore: MemoryStore cleared
+26/08/26 07:21:18 INFO BlockManager: BlockManager stopped
+26/08/26 07:21:18 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/08/26 07:21:18 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/08/26 07:21:19 INFO SparkContext: Successfully stopped SparkContext
+26/08/26 07:21:19 INFO ShutdownHookManager: Shutdown hook called
+26/08/26 07:21:19 INFO ShutdownHookManager: Deleting directory /tmp/spark-97e943db-f267-48ae-975c-b6cf36e9d892
+[error] sbt server disconnected
+Exception in thread "sbt-serverconnection-0" nonzero exit code returned from runner: 1
+	at sbt.Run$.processExitCode(Run.scala:257)
+	at sbt.ForkRun.run(Run.scala:45)
+	at sbt.internal.util.RunHandler$.jvmRun(RunHandler.scala:43)
+	at sbt.internal.client.NetworkClient.clientSideRun(NetworkClient.scala:847)
+	at sbt.internal.client.NetworkClient.clientSideRun(NetworkClient.scala:811)
+	at sbt.internal.client.NetworkClient.splitToMessage$1(NetworkClient.scala:742)
+	at sbt.internal.client.NetworkClient.onNotification(NetworkClient.scala:773)
+	at sbt.internal.client.NetworkClient$$anon$8.onNotification(NetworkClient.scala:315)
+	at sbt.protocol.ServerSessionImpl$$anon$1.run$$anonfun$2(ServerSessionImpl.scala:110)
+	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:15)
+	at scala.runtime.function.JProcedure1.apply(JProcedure1.java:10)
+	at scala.util.Either.fold(Either.scala:200)
+	at sbt.protocol.ServerSessionImpl$$anon$1.run(ServerSessionImpl.scala:107)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+[0J
